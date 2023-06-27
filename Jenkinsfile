@@ -27,6 +27,7 @@ pipeline {
             steps {
        
                  sh 'echo $BUILD_NUMBER'
+                sh 'echo $BD'
             }
         }
         stage('Deploy') {
