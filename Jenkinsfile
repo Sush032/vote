@@ -3,6 +3,10 @@ pipeline {
     options {
         skipStagesAfterUnstable()
     }
+    environment {
+        BD = $BUILD_NUMBER
+        
+    }
     stages {
          stage('Clone repository') { 
             steps { 
