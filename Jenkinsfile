@@ -22,7 +22,7 @@ pipeline {
         stage('Test'){
             steps {
        
-                 echo $BUILD_NUMBER
+                 sh 'echo $BUILD_NUMBER'
             }
         }
         stage('Deploy') {
