@@ -30,8 +30,8 @@ pipeline {
                    
                     
                         docker.withRegistry('https://651233853937.dkr.ecr.us-east-1.amazonaws.com/vote-j2', 'ecr:us-east-1:aws-credentials') {
-                    app.push("${env.BUILD_NUMBER}")
-                    app.push("latest")
+                              app.push("${env.BUILD_NUMBER}")
+                              app.push("latest")
                     }
                 }
             }
