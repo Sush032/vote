@@ -22,10 +22,11 @@ pipeline {
         }
         stage('Test'){
             steps {
-         script {
-      myVar = "bbb"
-          sh   'echo $myVar'
-    }
+            script {
+             env.MYVAR = sh(script: "echo $BUILD_NUMBER")
+             echo "${env.MYVAR}"
+             
+         }
                sh 'echo $myVar'
             }
         }
