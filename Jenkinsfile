@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("raj80dockerid/test")
+       app = docker.build("651233853937.dkr.ecr.us-east-1.amazonaws.com/vote-j2")
     }
 
     stage('Test image') {
@@ -22,8 +22,9 @@ node {
 
     stage('Push image') {
         
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-            app.push("${env.BUILD_NUMBER}")
+                         docker.withRegistry('https://651233853937.dkr.ecr.us-east-1.amazonaws.com/vote-j2', 'ecr:us-east-1:aws-credentials') {
+                              app.push("${env.MYVAR}")
+                              app.push("latest")
         }
     }
     
