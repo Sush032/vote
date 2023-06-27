@@ -24,7 +24,7 @@ pipeline {
             steps {
          script {
       myVar = "bbb"
-             echo $myVar
+          sh   'echo $myVar'
     }
                sh 'echo $myVar'
             }
