@@ -3,10 +3,7 @@ pipeline {
     options {
         skipStagesAfterUnstable()
     }
-    environment {
-        BD = $BUILD_NUMBER
-        
-    }
+   
     stages {
          stage('Clone repository') { 
             steps { 
@@ -25,9 +22,10 @@ pipeline {
         }
         stage('Test'){
             steps {
-       
-                 sh 'echo $BUILD_NUMBER'
-                sh 'echo $BD'
+         script {
+      myVar = "bbb"
+    }
+               sh 'echo $myVar'
             }
         }
         stage('Deploy') {
