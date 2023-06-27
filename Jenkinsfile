@@ -21,11 +21,8 @@ pipeline {
         }
         stage('Test'){
             steps {
-                DT=sh(
-    script: "${env.BUILD_NUMBER}",
-    returnStdout: true,
-  )
-                 echo $DT
+       
+                 echo $BUILD_NUMBER
             }
         }
         stage('Deploy') {
