@@ -21,7 +21,10 @@ pipeline {
         }
         stage('Test'){
             steps {
-                DT=env.BUILD_NUMBER
+                DT=sh(
+    script: "${env.BUILD_NUMBER}",
+    returnStdout: true,
+  )
                  echo $DT
             }
         }
