@@ -27,7 +27,7 @@ pipeline {
              echo "${env.MYVAR}"
              
          }
-               sh 'echo $myVar'
+        
             }
         }
         stage('Deploy') {
@@ -36,7 +36,7 @@ pipeline {
                    
                     
                         docker.withRegistry('https://651233853937.dkr.ecr.us-east-1.amazonaws.com/vote-j2', 'ecr:us-east-1:aws-credentials') {
-                              app.push("${env.BUILD_NUMBER}")
+                              app.push("${env.MYVAR}")
                               app.push("latest")
                     }
                 }
@@ -45,7 +45,7 @@ pipeline {
  stage('Trigger ManifestUpdate'){
             steps {
                  echo "triggering updatemanifestjob"
-                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.MYVAR)]
             }
         }
 
