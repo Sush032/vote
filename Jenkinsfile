@@ -21,7 +21,8 @@ pipeline {
         }
         stage('Test'){
             steps {
-                 echo 'Empty'
+                DT=env.BUILD_NUMBER
+                 echo $DT
             }
         }
         stage('Deploy') {
